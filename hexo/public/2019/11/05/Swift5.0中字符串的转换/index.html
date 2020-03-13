@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="记一次需求 需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。解决方案: 将歌曲名转换为英文字符，再排序。">
+<meta name="keywords" content="小知识点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift5.0中字符串的转换">
+<meta property="og:url" content="http://tianle.me/2019/11/05/Swift5.0中字符串的转换/index.html">
+<meta property="og:site_name" content="海泉的博客">
+<meta property="og:description" content="记一次需求 需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。解决方案: 将歌曲名转换为英文字符，再排序。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-05T12:29:56.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift5.0中字符串的转换">
+<meta name="twitter:description" content="记一次需求 需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。解决方案: 将歌曲名转换为英文字符，再排序。">
+  <link rel="canonical" href="http://tianle.me/2019/11/05/Swift5.0中字符串的转换/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Swift5.0中字符串的转换 | 海泉的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">海泉的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">记录学习的点滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>Schedule</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://tianle.me/2019/11/05/Swift5.0中字符串的转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="海泉">
+      <meta itemprop="description" content="宠辱不惊，闲看庭前花开花落。去留无意，漫随天外云卷云舒。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="海泉的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Swift5.0中字符串的转换
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-05 20:25:12 / Modified: 20:29:56" itemprop="dateCreated datePublished" datetime="2019-11-05T20:25:12+08:00">2019-11-05</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>记一次需求</p>
+<h5 id="需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。"><a href="#需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。" class="headerlink" title="需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。"></a>需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。</h5><h5 id="解决方案-将歌曲名转换为英文字符，再排序。"><a href="#解决方案-将歌曲名转换为英文字符，再排序。" class="headerlink" title="解决方案: 将歌曲名转换为英文字符，再排序。"></a>解决方案: 将歌曲名转换为英文字符，再排序。</h5><a id="more"></a>
+
+<h5 id="方案分解："><a href="#方案分解：" class="headerlink" title="方案分解："></a>方案分解：</h5><ol>
+<li><h6 id="认识主要iOS中的系统方法。-在Swift中可以使用Core-Foundation下的CFStringTransform方法转换。"><a href="#认识主要iOS中的系统方法。-在Swift中可以使用Core-Foundation下的CFStringTransform方法转换。" class="headerlink" title="认识主要iOS中的系统方法。 在Swift中可以使用Core Foundation下的CFStringTransform方法转换。"></a>认识主要iOS中的系统方法。 在Swift中可以使用Core Foundation下的<code>CFStringTransform</code>方法转换。</h6></li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 具体的转换方法</span></span><br><span class="line">    <span class="comment">/// 转换字符串</span></span><br><span class="line">    <span class="comment">/// - Parameter string: 要转的字符串，需是CFMutableString类型</span></span><br><span class="line">    <span class="comment">/// - Parameter range: 要转换的区间。全部转换可传入 nil</span></span><br><span class="line">    <span class="comment">/// - Parameter transform: 要应用的变换</span></span><br><span class="line">    <span class="comment">/// - Parameter reverse: 是否要反转</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">CFStringTransform</span><span class="params">(<span class="number">_</span> string: CFMutableString!, <span class="number">_</span> range: UnsafeMutablePointer&lt;CFRange&gt;!, <span class="number">_</span> transform: CFString!, <span class="number">_</span> <span class="built_in">reverse</span>: Bool)</span></span> -&gt; <span class="type">Bool</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><h6 id="写出调用封装方法。"><a href="#写出调用封装方法。" class="headerlink" title="写出调用封装方法。"></a>写出调用封装方法。</h6></li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="comment">/// 将任一字符串转换为英文字母字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">toLetters</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> mutableString = <span class="type">NSMutableString</span>(string: <span class="keyword">self</span>)</span><br><span class="line">        <span class="comment">// 应用 kCFStringTransformToLatin 变换将所有非英文文本转换为拉丁字母表示。</span></span><br><span class="line">        <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformToLatin, <span class="literal">false</span>)</span><br><span class="line">        <span class="comment">// 应用 kCFStringTransformStripCombiningMarks 变换来去除变音符和重音。</span></span><br><span class="line">        <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformStripCombiningMarks, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用CFStringLowercase缩减文本的大小，并使用CFStringTokenizer将文本拆分为标记，以用作文本的索引。</span></span><br><span class="line">        <span class="keyword">let</span> tokenizer = <span class="type">CFStringTokenizerCreate</span>(<span class="literal">nil</span>, mutableString, <span class="type">CFRangeMake</span>(<span class="number">0</span>, <span class="type">CFStringGetLength</span>(mutableString)), <span class="number">0</span>, <span class="type">CFLocaleCopyCurrent</span>())</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> mutableTokens: [<span class="type">String</span>] = []</span><br><span class="line">        <span class="keyword">var</span> type: <span class="type">CFStringTokenizerTokenType</span></span><br><span class="line">        <span class="keyword">repeat</span> &#123;</span><br><span class="line">            type = <span class="type">CFStringTokenizerAdvanceToNextToken</span>(tokenizer)</span><br><span class="line">            <span class="keyword">let</span> range = <span class="type">CFStringTokenizerGetCurrentTokenRange</span>(tokenizer)</span><br><span class="line">            <span class="keyword">let</span> token = <span class="type">CFStringCreateWithSubstring</span>(<span class="literal">nil</span>, mutableString, range) <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line">            mutableTokens.append(token <span class="keyword">as</span> <span class="type">String</span>)</span><br><span class="line">        &#125; <span class="keyword">while</span> type != []</span><br><span class="line"></span><br><span class="line">        <span class="comment">//生成最终字符串</span></span><br><span class="line">        <span class="keyword">let</span> joined = mutableTokens.joined()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> joined</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><h6 id="使用封装的方法"><a href="#使用封装的方法" class="headerlink" title="使用封装的方法"></a>使用封装的方法</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> string = <span class="string">"Hello! こんにちは! สวัสดี! مرحبا! 您好!"</span></span><br><span class="line"></span><br><span class="line"> <span class="built_in">print</span>(string.toLetters())</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="使用方法效果"><a href="#使用方法效果" class="headerlink" title="使用方法效果"></a>使用方法效果</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Hellokon'nichihaswasdimrhbaninhao</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h6><ol>
+<li>核心的方法原理是通过指定<a href="http://userguide.icu-project.org/transforms/general#TOC-ICU-Transliterators" target="_blank" rel="noopener">ICU</a><code>&quot;Any-Latin; Latin-ASCII; Any-Lower&quot;</code>一次转换完成的。就是拉丁字符转换为 ASCII，字母全部小写的格式。</li>
+<li>在字符串的比较方法中要注意要么字符串全大写or全小写。</li>
+</ol>
+</li>
+<li><p>参考链接</p>
+<ol>
+<li><a href="https://imliaoyuan.com/2018/01/01/CFStringTransform-字符转换.html" target="_blank" rel="noopener">CFStringTransform 字符转换</a></li>
+<li>[CFStringTransform](</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="海泉 wechat" style="width: 200px; max-width: 100%;">
+  <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/小知识点/" rel="tag"># 小知识点</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/23/CRC/" rel="next" title="CRC">
+                  <i class="fa fa-chevron-left"></i> CRC
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。"><span class="nav-number">1.</span> <span class="nav-text">需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方案-将歌曲名转换为英文字符，再排序。"><span class="nav-number">2.</span> <span class="nav-text">解决方案: 将歌曲名转换为英文字符，再排序。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方案分解："><span class="nav-number">3.</span> <span class="nav-text">方案分解：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#认识主要iOS中的系统方法。-在Swift中可以使用Core-Foundation下的CFStringTransform方法转换。"><span class="nav-number">3.1.</span> <span class="nav-text">认识主要iOS中的系统方法。 在Swift中可以使用Core Foundation下的CFStringTransform方法转换。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出调用封装方法。"><span class="nav-number">3.2.</span> <span class="nav-text">写出调用封装方法。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用封装的方法"><span class="nav-number">3.3.</span> <span class="nav-text">使用封装的方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用方法效果"><span class="nav-number">3.4.</span> <span class="nav-text">使用方法效果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注意事项"><span class="nav-number">3.5.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="海泉">
+  <p class="site-author-name" itemprop="name">海泉</p>
+  <div class="site-description" itemprop="description">宠辱不惊，闲看庭前花开花落。去留无意，漫随天外云卷云舒。</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Xiahaiquan" title="GitHub &rarr; https://github.com/Xiahaiquan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.jianshu.com/u/3dc66b6f1a45" title="简书 &rarr; https://www.jianshu.com/u/3dc66b6f1a45" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>简书</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1991 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">海泉</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="true"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: 'xiahaiquan.github.io',
+          owner: '',
+          admin: [''],
+          id: location.pathname,
+          distractionFreeMode: ''
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  
+
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: 'xiahaiquan.github.io',
+          owner: '',
+          admin: [''],
+          id: location.pathname,
+          distractionFreeMode: ''
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+</body>
+</html>
