@@ -1,8 +1,10 @@
 # Header
 menu:
   Home: /
-  Archives: /archives
-rss: /atom.xml
+# Archives: /archives
+  简书: https://www.jianshu.com/u/3dc66b6f1a45
+  Github: https://github.com/Xiahaiquan
+#rss: /atom.xml
 
 # Content
 excerpt_link: Read More
