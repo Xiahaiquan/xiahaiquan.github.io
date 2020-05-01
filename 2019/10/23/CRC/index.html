@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>CRC | 海泉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CRC（循环冗余校验） 循环冗余校验（Cyclic Redundancy Check， CRC）是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种信道编码技术，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。 在线CRC计算工具 在实际项目中，用于蓝牙数据通讯。一般的做法是在数据的末尾添加CRC校验，用于纠错、检错。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRC">
+<meta property="og:url" content="http://yoursite.com/2019/10/23/CRC/index.html">
+<meta property="og:site_name" content="海泉">
+<meta property="og:description" content="CRC（循环冗余校验） 循环冗余校验（Cyclic Redundancy Check， CRC）是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种信道编码技术，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。 在线CRC计算工具 在实际项目中，用于蓝牙数据通讯。一般的做法是在数据的末尾添加CRC校验，用于纠错、检错。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-23T11:32:05.000Z">
+<meta property="article:modified_time" content="2019-10-23T12:27:21.000Z">
+<meta property="article:author" content="海泉">
+<meta property="article:tag" content="知识点记录">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="海泉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">海泉</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay Hungry, Stay Foolish</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CRC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/23/CRC/" class="article-date">
+  <time datetime="2019-10-23T11:32:05.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CRC
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="CRC（循环冗余校验）"><a href="#CRC（循环冗余校验）" class="headerlink" title="CRC（循环冗余校验）"></a>CRC（循环冗余校验）</h5><p> 循环冗余校验（Cyclic Redundancy Check， CRC）是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种<a href="https://baike.baidu.com/item/信道编码技术/2366288" target="_blank" rel="noopener">信道编码技术</a>，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。</p>
+<p><a href="http://www.ip33.com/crc.html" target="_blank" rel="noopener">在线CRC计算工具</a></p>
+<p>在实际项目中，用于蓝牙数据通讯。一般的做法是在数据的末尾添加CRC校验，用于纠错、检错。</p>
+<a id="more"></a>
+
+<h5 id="计算CRC8的方法"><a href="#计算CRC8的方法" class="headerlink" title="计算CRC8的方法"></a>计算CRC8的方法</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">CRC</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> poly = <span class="number">0x07</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> mask = <span class="number">0xff</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> table: [<span class="type">UInt8</span>] = &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> table = <span class="type">Array</span>.<span class="keyword">init</span>(repeating: <span class="type">UInt8</span>(<span class="number">0</span>), <span class="built_in">count</span>: <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;table.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> <span class="built_in">c</span> = i</span><br><span class="line">            <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="number">8</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">c</span> &amp; <span class="number">0x80</span> != <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="built_in">c</span> = (((<span class="built_in">c</span> &lt;&lt; <span class="number">1</span>) &amp; mask) ^ poly)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">c</span> &lt;&lt;= <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            table[i] = <span class="type">UInt8</span>(<span class="built_in">c</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> table</span><br><span class="line">    &#125;()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">makeCRC8</span><span class="params">(string: String)</span></span> -&gt; <span class="type">UInt8</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> data = string.data(using: <span class="type">String</span>.<span class="type">Encoding</span>.utf8) <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="number">0</span> &#125;</span><br><span class="line">        <span class="keyword">return</span> makeCRC8(data: data)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">makeCRC8</span><span class="params">(data: Data)</span></span> -&gt; <span class="type">UInt8</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> dataArray = [<span class="type">UInt8</span>](data)</span><br><span class="line">        <span class="keyword">var</span> crc8:<span class="type">UInt8</span> = <span class="number">0x00</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;dataArray.<span class="built_in">count</span> &#123;</span><br><span class="line">            crc8 = table[<span class="type">Int</span>(crc8 ^ dataArray[i])]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> crc8</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">makeCRC8</span><span class="params">(data: [UInt8])</span></span> -&gt; <span class="type">UInt8</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> crc8:<span class="type">UInt8</span> = <span class="number">0x00</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;data.<span class="built_in">count</span> &#123;</span><br><span class="line">            crc8 = table[<span class="type">Int</span>(crc8 ^ data[i])]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> crc8</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">init</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> bytes: [<span class="type">UInt8</span>] = [<span class="number">0xAA</span>, <span class="number">0x01</span>, <span class="number">0x01</span>, <span class="number">0x03</span>,<span class="number">0x05</span>,<span class="number">0xFF</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> crcResult = <span class="type">CRC</span>.makeCRC8(data: bytes)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"crcResult:\(crcResult)"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="计算CRC-8-MAXIM的方法"><a href="#计算CRC-8-MAXIM的方法" class="headerlink" title="计算CRC-8/MAXIM的方法"></a>计算CRC-8/MAXIM的方法</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">dallas_crc8</span><span class="params">(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> * data, <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">size</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> crc = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; ++i )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span> inbyte = data[i];</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">unsigned</span> <span class="keyword">char</span> j = <span class="number">0</span>; j &lt; <span class="number">8</span>; ++j )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span> mix = (crc ^ inbyte) &amp; <span class="number">0x01</span>;</span><br><span class="line">            crc &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> ( mix ) crc ^= <span class="number">0x8C</span>;</span><br><span class="line">            inbyte &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> crc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bytes: [<span class="type">UInt8</span>] = [<span class="number">0xAA</span>, <span class="number">0x01</span>, <span class="number">0x01</span>, <span class="number">0x03</span>,<span class="number">0x05</span>,<span class="number">0xFF</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> crcResult = dallas_crc8(&amp;bytes, <span class="type">UInt32</span>(<span class="type">Int32</span>(bytes.<span class="built_in">count</span>)))</span><br><span class="line"></span><br><span class="line"> <span class="built_in">print</span>(<span class="string">"crcResult:\(crcResult)"</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="在Swift中引用C代码"><a href="#在Swift中引用C代码" class="headerlink" title="在Swift中引用C代码"></a>在Swift中引用C代码</h5><ol>
+<li>新建文件并创建桥接文件，(可以不创建头文件)将新建的文件后缀名更改为<code>.m</code>。</li>
+<li>在<code>.m</code>文件中引入桥接文件<code>#import &quot;XXTest-Bridging-Header.h&quot;</code>, 在该文件中写入C代码。</li>
+<li>在桥接文件中写上C方法签名，<code>unsigned char dallas_crc8(const unsigned char * data, const unsigned int size)</code>;</li>
+<li>如上就可在Swift调用C代码了。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/23/CRC/" data-id="ck9nju4yr0000sfy93nx0bwnp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" rel="tag">知识点记录</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Swift5中CFStringTransform的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/22/%E5%BC%80%E5%8F%91Tips/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">开发Tips</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">iOS开发中的小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">工具的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" rel="tag">知识点记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">第三方的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">iOS开发中的小技巧</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 15px;">工具的使用</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">知识点记录</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">第三方的使用</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">软件、工具的使用</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/25/%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF%E5%AE%A1%E6%A0%B8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">医疗项目上架审核注意事项</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/">iOS13蓝牙隐私变化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/">Swift5中CFStringTransform的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/23/CRC/">CRC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 海泉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Nmap的简单使用 | 海泉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装客户端安装打开官网链接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nmap的简单使用">
+<meta property="og:url" content="http://yoursite.com/2019/09/26/Nmap%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="海泉">
+<meta property="og:description" content="安装客户端安装打开官网链接">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-9.png">
+<meta property="article:published_time" content="2019-09-26T12:55:23.000Z">
+<meta property="article:modified_time" content="2019-09-26T13:04:44.000Z">
+<meta property="article:author" content="海泉">
+<meta property="article:tag" content="工具的使用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="海泉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">海泉</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay Hungry, Stay Foolish</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Nmap的简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/26/Nmap%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2019-09-26T12:55:23.000Z" itemprop="datePublished">2019-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nmap的简单使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h2><h3 id="打开官网链接"><a href="#打开官网链接" class="headerlink" title="打开官网链接"></a>打开官网链接</h3><a id="more"></a>
+
+<p><a href="https://nmap.org/download.html" target="_blank" rel="noopener">官网地址</a></p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-1.png" alt=""></p>
+<p>​                                                                        图 1-1 官网下载Mac版地址</p>
+<h3 id="下载客户端，安装完成"><a href="#下载客户端，安装完成" class="headerlink" title="下载客户端，安装完成"></a>下载客户端，安装完成</h3><p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-2.png" alt=""></p>
+<p>​                                                                            图 1-2 客户端终端图标</p>
+<h2 id="终端安装"><a href="#终端安装" class="headerlink" title="终端安装"></a>终端安装</h2><p>命令：<code>brew install nmap</code></p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-3.png" alt=""></p>
+<p>​                                                                图 1-3 安装完成后再次安装后的终端输出</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="在终端的使用"><a href="#在终端的使用" class="headerlink" title="在终端的使用"></a>在终端的使用</h2><h3 id="扫描主机所有端口"><a href="#扫描主机所有端口" class="headerlink" title="扫描主机所有端口"></a>扫描主机所有端口</h3><p>命令：<code>nmap 116.7.249.146</code></p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-4.png" alt=""></p>
+<p>​                                                                            图 1-4 扫描主机的输出</p>
+<h3 id="扫描指定主机的开放端口，系统版本等信息"><a href="#扫描指定主机的开放端口，系统版本等信息" class="headerlink" title="扫描指定主机的开放端口，系统版本等信息"></a>扫描指定主机的开放端口，系统版本等信息</h3><p>命令： <code>nmap -A 192.168.100.52</code></p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-5.png" alt=""></p>
+<p>​                                                                图 1-5 扫描开发端口的详细输出</p>
+<p><a href="https://www.cnblogs.com/nmap/p/6232969.html" target="_blank" rel="noopener">更多命令的高级用法</a>， <a href="https://www.cnblogs.com/c4isr/archive/2012/12/07/2807491.html" target="_blank" rel="noopener">更多扫描方式</a></p>
+<h2 id="客户端使用"><a href="#客户端使用" class="headerlink" title="客户端使用"></a>客户端使用</h2><h3 id="扫描所有主机所有端口"><a href="#扫描所有主机所有端口" class="headerlink" title="扫描所有主机所有端口"></a>扫描所有主机所有端口</h3><p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-6.png" alt=""></p>
+<p>​                                                                    图 2-1 扫描结果标准输出</p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-7.png" alt=""></p>
+<pre><code>图 2-2 扫描结果图形化显示</code></pre><p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-8.png" alt=""></p>
+<p>​                                                                        图 2-3 主机明细显示</p>
+<ul>
+<li>扫描结果导出建议使用XML格式，其中开头有乱码。PDF或其他格式不能正常显示。</li>
+</ul>
+<p><a href="https://www.cnblogs.com/nmap/p/6232969.html" target="_blank" rel="noopener">更多命令的高级用法</a>， <a href="https://www.cnblogs.com/c4isr/archive/2012/12/07/2807491.html" target="_blank" rel="noopener">更多扫描方式</a></p>
+<h3 id="扫描出的状态说明"><a href="#扫描出的状态说明" class="headerlink" title="扫描出的状态说明"></a>扫描出的状态说明</h3><p><code>Open</code>：端口处于开放状态，例如：当nmap使用TCP SYN对目标主机某一范围的端口进行扫描时，我们知道 TCP SYN报文是TCP建立连接的第一步，所以，如果目标主机返回SYN+ACK的报文，我们就认为此端口开放了并且使用了TCP服务。</p>
+<p><code>Closed</code>：端口处于关闭状态。例如：TCP SYN类型的扫描，如果返回RST类型的报文，则端口处于管理状态。这里我们值得注意的是关闭的端口也是可访问的，只是没有上层的服务在监听这个端口，而且，只是在我们扫描的这个时刻为关闭，当我们在另一个时间段进行扫描的时候，这些关闭的端口可能会处于open的状态。</p>
+<p><code>Filtered（过滤的）</code>：由于报文无法到达指定的端口，nmap不能够决定端口的开放状态，这主要是由于网络或者主机安装了一些防火墙所导致的。当nmap收到icmp报文主机不可达报文（例如：type为3，code为13（communication administratively prohibit）报文）或者目标主机无应答，常常会将目标主机的状态设置为filtered。</p>
+<p><code>Unfiltered（未被过滤的）</code>，当nmap不能确定端口是否开放的时候所打上的状态，这种状态和filtered的区别在于：unfiltered的端口能被nmap访问，但是nmap根据返回的报文无法确定端口的开放状态，而filtered的端口直接就没就没能够被nmap访问。端口被定义为Unfilterd只会发生在TCP ack扫描类型时当返回RST的报文。而端口被定义为filtered 状态的原因是是报文被防火墙设备，路由器规则，或者防火墙软件拦截，无法送达到端口，这通常表现为发送NMAP的主机收到ICMP报错报文，如：TYPE为3，code为13的报文（通信被认为的禁止 communication administratively prohibited），或者主机通过多次重复发送没有收到任何回应）。</p>
+<p>Open|filtered状态，这种状态主要是nmap无法区别端口处于open状态还是filtered状态。这种状态只会出现在open端口对报文不做回应的扫描类型中，如：udp，ip protocol ，TCP null，fin，和xmas扫描类型。</p>
+<p><code>Closed\|filtered状态</code>，这种状态主要出现在nmap无法区分端口处于closed还是filtered时。此状态只会出现在IP ID idle scan（这个类型我现在也不太理解，过段时间进行总结一些）中。</p>
+<h3 id="快速扫描TCP端口"><a href="#快速扫描TCP端口" class="headerlink" title="快速扫描TCP端口"></a>快速扫描TCP端口</h3><p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/HowToUseTheNmap/1-9.png" alt=""></p>
+<p>​                                                                                            图 2-4 扫描TCP端口</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/26/Nmap%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" data-id="ck9nju4yy0001sfy939xv9xj1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">工具的使用</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/26/Nmap%E7%9A%84%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nmap的详细说明
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/23/%E9%87%8D%E7%BD%AEMac%E7%AE%A1%E7%90%86%E5%91%98%E5%90%8D%E7%A7%B0%E5%92%8C%E5%AF%86%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">重置Mac管理员名称和密码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">iOS开发中的小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">工具的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" rel="tag">知识点记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">第三方的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">iOS开发中的小技巧</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 15px;">工具的使用</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">知识点记录</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">第三方的使用</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">软件、工具的使用</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/25/%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF%E5%AE%A1%E6%A0%B8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">医疗项目上架审核注意事项</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/">iOS13蓝牙隐私变化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/">Swift5中CFStringTransform的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/23/CRC/">CRC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 海泉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

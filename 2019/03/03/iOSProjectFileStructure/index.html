@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>iOS项目架构文件划分 | 海泉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="项目架构文件夹划分的意义​        iOS开发者在开始搭建项目的时候，或者整理项目的，工程拥有清晰的目录结构，可让人一眼明白相应的业务和职能，多人联合开发时，复杂的项目也可以简单明了，达到快速项目开发并产生Bug少等问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS项目架构文件划分">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/iOSProjectFileStructure/index.html">
+<meta property="og:site_name" content="海泉">
+<meta property="og:description" content="项目架构文件夹划分的意义​        iOS开发者在开始搭建项目的时候，或者整理项目的，工程拥有清晰的目录结构，可让人一眼明白相应的业务和职能，多人联合开发时，复杂的项目也可以简单明了，达到快速项目开发并产生Bug少等问题。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOSProjectFleStructure/1-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOSProjectFleStructure/1-2.png">
+<meta property="article:published_time" content="2019-03-03T07:55:53.000Z">
+<meta property="article:modified_time" content="2020-04-26T05:43:14.819Z">
+<meta property="article:author" content="海泉">
+<meta property="article:tag" content="软件、工具的使用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOSProjectFleStructure/1-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="海泉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">海泉</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay Hungry, Stay Foolish</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOSProjectFileStructure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/03/iOSProjectFileStructure/" class="article-date">
+  <time datetime="2019-03-03T07:55:53.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS项目架构文件划分
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="项目架构文件夹划分的意义"><a href="#项目架构文件夹划分的意义" class="headerlink" title="项目架构文件夹划分的意义"></a>项目架构文件夹划分的意义</h4><p>​        iOS开发者在开始搭建项目的时候，或者整理项目的，工程拥有清晰的目录结构，可让人一眼明白相应的业务和职能，多人联合开发时，复杂的项目也可以简单明了，达到快速项目开发并产生Bug少等问题。</p>
+<a id="more"></a>
+
+<h4 id="如何划分项目架构"><a href="#如何划分项目架构" class="headerlink" title="如何划分项目架构"></a>如何划分项目架构</h4><h5 id="按业务逻辑划分"><a href="#按业务逻辑划分" class="headerlink" title="按业务逻辑划分"></a>按业务逻辑划分</h5><h6 id="主目录按照MVC-MVVM等架构分类，内部根据项目模块分类"><a href="#主目录按照MVC-MVVM等架构分类，内部根据项目模块分类" class="headerlink" title="主目录按照MVC\MVVM等架构分类，内部根据项目模块分类"></a>主目录按照MVC\MVVM等架构分类，内部根据项目模块分类</h6><p>优点：相对比较快定位对应的业务。<br>缺点：模块相关类太过分散，需要来回切换寻找文件，不方便开发。</p>
+<h5 id="按模块划分"><a href="#按模块划分" class="headerlink" title="按模块划分"></a>按模块划分</h5><h6 id="主目录按照模块分类，内目录按照业务分类"><a href="#主目录按照模块分类，内目录按照业务分类" class="headerlink" title="主目录按照模块分类，内目录按照业务分类"></a>主目录按照模块分类，内目录按照业务分类</h6><p>优点：对模块的类集中化，方便管理与开发。<br>缺点：当几个模块共用一些类时，不太好归类。</p>
+<h5 id="项目公共模块"><a href="#项目公共模块" class="headerlink" title="项目公共模块"></a>项目公共模块</h5><ul>
+<li>pod 部分，由pod管理第三方，这块的的规范性很好，不需要自定义的修改。</li>
+<li>Resource。存放整个工程中所要的资源文件，包含OTA所要的firmware，AWS配置生成的Plist等文件。</li>
+<li>Vender。放置整个工程的Manager，包含对Pod再封装的，必需通过拖拽的方法引入的第三方等。</li>
+<li>Expand。囊括整个工程要拓展的一些文件，包括整个项目的变、常量，Extension，混编所要的桥接文件等。</li>
+</ul>
+<h4 id="目前"><a href="#目前" class="headerlink" title="目前"></a>目前</h4><p>项目采用按模块划分的方式组织开发。</p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOSProjectFleStructure/1-1.png" alt="步骤"></p>
+<p>整个项目由Sigms.xcworkspace管理Sigma.xcodeproj和Pods.xcodeproj组成。</p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOSProjectFleStructure/1-2.png" alt="步骤"></p>
+<p>上图详细的表示了工程主目录按模块，内目录按业务划分的具体实现。其中内目录不仅可以使用MVC的设计模式，更可以结合当前模块的业务逻辑等因素使用MVVM等其他设计模式，有很大的发挥空间。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p> 无论采用何种具体的模块划分方法，一定要满足当前工程的功能需求，只有满足业务情况下，技术才显得有价值。 当业务、需求不断发展的发展伴随着逻辑不断的更新、迭代时，就不要再为模块的划分而划分模块了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/03/iOSProjectFileStructure/" data-id="ck9nju4zc0009sfy9fgdygv6q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/10/SwiftLint%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SwiftLint的使用
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">iOS开发中的小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">工具的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" rel="tag">知识点记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">第三方的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">iOS开发中的小技巧</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 15px;">工具的使用</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">知识点记录</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">第三方的使用</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">软件、工具的使用</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/25/%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF%E5%AE%A1%E6%A0%B8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">医疗项目上架审核注意事项</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/">iOS13蓝牙隐私变化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/">Swift5中CFStringTransform的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/23/CRC/">CRC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 海泉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

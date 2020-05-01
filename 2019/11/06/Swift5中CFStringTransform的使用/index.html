@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Swift5中CFStringTransform的使用 | 海泉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记一次需求 需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。解决方案: 将歌曲名转换为英文字符，再排序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift5中CFStringTransform的使用">
+<meta property="og:url" content="http://yoursite.com/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="海泉">
+<meta property="og:description" content="记一次需求 需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。解决方案: 将歌曲名转换为英文字符，再排序。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-11-06T00:48:11.000Z">
+<meta property="article:modified_time" content="2019-11-06T00:48:51.000Z">
+<meta property="article:author" content="海泉">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="海泉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">海泉</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay Hungry, Stay Foolish</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Swift5中CFStringTransform的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2019-11-06T00:48:11.000Z" itemprop="datePublished">2019-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift5中CFStringTransform的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记一次需求</p>
+<h5 id="需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。"><a href="#需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。" class="headerlink" title="需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。"></a>需求：将歌曲排序。歌曲名可能纯为数字、纯中文、纯英文、纯日文、或者各种语言的混合。</h5><h5 id="解决方案-将歌曲名转换为英文字符，再排序。"><a href="#解决方案-将歌曲名转换为英文字符，再排序。" class="headerlink" title="解决方案: 将歌曲名转换为英文字符，再排序。"></a>解决方案: 将歌曲名转换为英文字符，再排序。</h5><a id="more"></a>
+
+<h5 id="方案分解："><a href="#方案分解：" class="headerlink" title="方案分解："></a>方案分解：</h5><ol>
+<li><h6 id="认识主要iOS中的系统方法。-在Swift中可以使用Core-Foundation下的CFStringTransform方法转换。"><a href="#认识主要iOS中的系统方法。-在Swift中可以使用Core-Foundation下的CFStringTransform方法转换。" class="headerlink" title="认识主要iOS中的系统方法。 在Swift中可以使用Core Foundation下的CFStringTransform方法转换。"></a>认识主要iOS中的系统方法。 在Swift中可以使用Core Foundation下的<code>CFStringTransform</code>方法转换。</h6></li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 具体的转换方法</span></span><br><span class="line">    <span class="comment">/// 转换字符串</span></span><br><span class="line">    <span class="comment">/// - Parameter string: 要转的字符串，需是CFMutableString类型</span></span><br><span class="line">    <span class="comment">/// - Parameter range: 要转换的区间。全部转换可传入 nil</span></span><br><span class="line">    <span class="comment">/// - Parameter transform: 要应用的变换</span></span><br><span class="line">    <span class="comment">/// - Parameter reverse: 是否要反转</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">CFStringTransform</span><span class="params">(<span class="number">_</span> string: CFMutableString!, <span class="number">_</span> range: UnsafeMutablePointer&lt;CFRange&gt;!, <span class="number">_</span> transform: CFString!, <span class="number">_</span> <span class="built_in">reverse</span>: Bool)</span></span> -&gt; <span class="type">Bool</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><h6 id="写出调用封装方法。"><a href="#写出调用封装方法。" class="headerlink" title="写出调用封装方法。"></a>写出调用封装方法。</h6></li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="comment">/// 将任一字符串转换为英文字母字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">toLetters</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> mutableString = <span class="type">NSMutableString</span>(string: <span class="keyword">self</span>)</span><br><span class="line">        <span class="comment">// 应用 kCFStringTransformToLatin 变换将所有非英文文本转换为拉丁字母表示。</span></span><br><span class="line">        <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformToLatin, <span class="literal">false</span>)</span><br><span class="line">        <span class="comment">// 应用 kCFStringTransformStripCombiningMarks 变换来去除变音符和重音。</span></span><br><span class="line">        <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformStripCombiningMarks, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用CFStringLowercase缩减文本的大小，并使用CFStringTokenizer将文本拆分为标记，以用作文本的索引。</span></span><br><span class="line">        <span class="keyword">let</span> tokenizer = <span class="type">CFStringTokenizerCreate</span>(<span class="literal">nil</span>, mutableString, <span class="type">CFRangeMake</span>(<span class="number">0</span>, <span class="type">CFStringGetLength</span>(mutableString)), <span class="number">0</span>, <span class="type">CFLocaleCopyCurrent</span>())</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> mutableTokens: [<span class="type">String</span>] = []</span><br><span class="line">        <span class="keyword">var</span> type: <span class="type">CFStringTokenizerTokenType</span></span><br><span class="line">        <span class="keyword">repeat</span> &#123;</span><br><span class="line">            type = <span class="type">CFStringTokenizerAdvanceToNextToken</span>(tokenizer)</span><br><span class="line">            <span class="keyword">let</span> range = <span class="type">CFStringTokenizerGetCurrentTokenRange</span>(tokenizer)</span><br><span class="line">            <span class="keyword">let</span> token = <span class="type">CFStringCreateWithSubstring</span>(<span class="literal">nil</span>, mutableString, range) <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line">            mutableTokens.append(token <span class="keyword">as</span> <span class="type">String</span>)</span><br><span class="line">        &#125; <span class="keyword">while</span> type != []</span><br><span class="line"></span><br><span class="line">        <span class="comment">//生成最终字符串</span></span><br><span class="line">        <span class="keyword">let</span> joined = mutableTokens.joined()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> joined</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><h6 id="使用封装的方法"><a href="#使用封装的方法" class="headerlink" title="使用封装的方法"></a>使用封装的方法</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> string = <span class="string">"Hello! こんにちは! สวัสดี! مرحبا! 您好!"</span></span><br><span class="line"></span><br><span class="line"> <span class="built_in">print</span>(string.toLetters())</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="使用方法效果"><a href="#使用方法效果" class="headerlink" title="使用方法效果"></a>使用方法效果</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Hellokon'nichihaswasdimrhbaninhao</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h6><ol>
+<li>核心的方法原理是通过指定<a href="http://userguide.icu-project.org/transforms/general#TOC-ICU-Transliterators" target="_blank" rel="noopener">ICU</a><code>&quot;Any-Latin; Latin-ASCII; Any-Lower&quot;</code>一次转换完成的。就是拉丁字符转换为 ASCII，字母全部小写的格式。</li>
+<li>在字符串的比较方法中要注意要么字符串全大写or全小写。</li>
+</ol>
+</li>
+<li><p>参考链接</p>
+<ol>
+<li><a href="https://imliaoyuan.com/2018/01/01/CFStringTransform-字符转换.html" target="_blank" rel="noopener">CFStringTransform 字符转换</a></li>
+<li>[CFStringTransform](</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ck9nju4z20003sfy9gny7cwcm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS13蓝牙隐私变化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/23/CRC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CRC</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">iOS开发中的小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">工具的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" rel="tag">知识点记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">第三方的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">iOS开发中的小技巧</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 15px;">工具的使用</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">知识点记录</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">第三方的使用</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">软件、工具的使用</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/25/%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF%E5%AE%A1%E6%A0%B8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">医疗项目上架审核注意事项</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/">iOS13蓝牙隐私变化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/">Swift5中CFStringTransform的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/23/CRC/">CRC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 海泉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

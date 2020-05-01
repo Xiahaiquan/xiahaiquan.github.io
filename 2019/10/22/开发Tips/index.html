@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>开发Tips | 海泉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Swift对象数据转字典通讯录中UITableView的数据源. 12let arr &#x3D; [ContactsModel]let res &#x3D; Dictionary(grouping: arr, by: &amp;#123; $0.name.prefix(1).uppercased()&amp;#125;) &#x2F;&#x2F; [String:[ContactsModel]]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发Tips">
+<meta property="og:url" content="http://yoursite.com/2019/10/22/%E5%BC%80%E5%8F%91Tips/index.html">
+<meta property="og:site_name" content="海泉">
+<meta property="og:description" content="Swift对象数据转字典通讯录中UITableView的数据源. 12let arr &#x3D; [ContactsModel]let res &#x3D; Dictionary(grouping: arr, by: &amp;#123; $0.name.prefix(1).uppercased()&amp;#125;) &#x2F;&#x2F; [String:[ContactsModel]]">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-22T11:33:41.000Z">
+<meta property="article:modified_time" content="2020-03-13T06:16:36.000Z">
+<meta property="article:author" content="海泉">
+<meta property="article:tag" content="iOS开发中的小技巧">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="海泉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">海泉</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay Hungry, Stay Foolish</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-开发Tips" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/22/%E5%BC%80%E5%8F%91Tips/" class="article-date">
+  <time datetime="2019-10-22T11:33:41.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      开发Tips
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h1><h5 id="对象数据转字典"><a href="#对象数据转字典" class="headerlink" title="对象数据转字典"></a>对象数据转字典</h5><p>通讯录中<code>UITableView</code>的数据源.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="type">ContactsModel</span>]</span><br><span class="line"><span class="keyword">let</span> res = <span class="type">Dictionary</span>(grouping: arr, by: &#123; $<span class="number">0</span>.name.<span class="keyword">prefix</span>(<span class="number">1</span>).uppercased()&#125;) <span class="comment">// [String:[ContactsModel]]</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h5 id="汉字转拼音"><a href="#汉字转拼音" class="headerlink" title="汉字转拼音"></a>汉字转拼音</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">transformToPinYin</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> mutableString = <span class="type">NSMutableString</span>(string: <span class="keyword">self</span>)</span><br><span class="line">        <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformToLatin, <span class="literal">false</span>)</span><br><span class="line">        <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformStripDiacritics, <span class="literal">false</span>)</span><br><span class="line">        <span class="keyword">let</span> string = <span class="type">String</span>(mutableString)</span><br><span class="line">        <span class="keyword">return</span> string.replacingOccurrences(of: <span class="string">" "</span>, with: <span class="string">""</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Hex-to-byte"><a href="#Hex-to-byte" class="headerlink" title="Hex to byte"></a>Hex to byte</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">StringProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hexa2Bytes: [<span class="type">UInt8</span>] &#123;</span><br><span class="line">        <span class="keyword">let</span> hexa = <span class="type">Array</span>(<span class="keyword">self</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">stride</span>(from: <span class="number">0</span>, to: <span class="built_in">count</span>, by: <span class="number">2</span>).compactMap &#123; <span class="type">UInt8</span>(<span class="type">String</span>(hexa[$<span class="number">0</span>..&lt;$<span class="number">0</span>.advanced(by: <span class="number">2</span>)]), radix: <span class="number">16</span>) &#125;</span><br><span class="line">    &#125;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="获取UICollectionView显示的中间的Cell"><a href="#获取UICollectionView显示的中间的Cell" class="headerlink" title="获取UICollectionView显示的中间的Cell"></a>获取UICollectionView显示的中间的Cell</h5><p>遵守Scrollview的代理方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">scrollViewDidEndDecelerating</span><span class="params">(<span class="number">_</span> scrollView: UIScrollView)</span></span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> centerCellIndexPath = dateCollectView!.getMidVisibleIndexPath()</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span>  horDateSelectorCollectionViewCell = dateCollectView!.cellForItem(at: centerCellIndexPath!) <span class="keyword">as</span>? <span class="type">FDHorDateSelectorCollectionViewCell</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对UICollectionViewCell的extension</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">CollectionVisibleMidCell</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">CollectionVisibleMidCell</span> <span class="title">where</span> <span class="title">Self</span>: <span class="title">UICollectionView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getMidVisibleIndexPath</span><span class="params">()</span></span> -&gt; <span class="type">IndexPath?</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> visibleRect = <span class="type">CGRect</span>()</span><br><span class="line">        visibleRect.origin = <span class="keyword">self</span>.contentOffset</span><br><span class="line">        visibleRect.size = <span class="keyword">self</span>.bounds.size</span><br><span class="line">        <span class="keyword">let</span> visiblePoint = <span class="type">CGPoint</span>(x: visibleRect.midX, y: visibleRect.midY)</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> indexPath = <span class="keyword">self</span>.indexPathForItem(at: visiblePoint) <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line">        <span class="keyword">return</span> indexPath</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UICollectionView</span>: <span class="title">CollectionVisibleMidCell</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="UITableView无刷新动画的刷新"><a href="#UITableView无刷新动画的刷新" class="headerlink" title="UITableView无刷新动画的刷新"></a>UITableView无刷新动画的刷新</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Reload data withoutAnimation</span></span><br><span class="line"> <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">     <span class="type">UIView</span>.performWithoutAnimation &#123;</span><br><span class="line">            <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">          &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="在合适的的时机移除通知和定时器"><a href="#在合适的的时机移除通知和定时器" class="headerlink" title="在合适的的时机移除通知和定时器"></a>在合适的的时机移除通知和定时器</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@available</span>(iOS <span class="number">5.0</span>, *)</span><br><span class="line"> <span class="keyword">open</span> <span class="keyword">var</span> isMovingFromParent: <span class="type">Bool</span> &#123; <span class="keyword">get</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>viewWillDisappear</code>判断当前VC是由Pop,调用的，还是由Push调用的，可以再合适的时机调用移除通知或定时器。</p>
+<h5 id="swift的forin循环遍历"><a href="#swift的forin循环遍历" class="headerlink" title="swift的forin循环遍历"></a>swift的forin循环遍历</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个Array的数组</span></span><br><span class="line"><span class="keyword">var</span> items = [<span class="string">"Swift"</span>, <span class="string">"OC"</span>, <span class="string">"Javascript"</span>]</span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> items &#123;</span><br><span class="line">    items.removeLast()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>swift中的循环遍历删除不会崩溃的。(<a href="https://github.com/apple/swift/blob/da61cc8cdf7aa2bfb3ab03200c52c4d371dc6751/stdlib/public/core/Sequence.swift" target="_blank" rel="noopener">官方源码</a>)原因是在它的迭代器进行循环的，上面的代码可转化成如下代码</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> items = [<span class="string">"Swift"</span>, <span class="string">"OC"</span>, <span class="string">"Javascript"</span>]</span><br><span class="line"><span class="keyword">var</span> itemsIterator = items.makeIterator()</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">let</span> item = itemsIterator.next() &#123;</span><br><span class="line">    items.removeLast()<span class="comment">//此处删除items的时候，itemsIterator并不会受到影响。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用Label显示Unicode</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> label = <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>.<span class="keyword">init</span>(x: <span class="number">10</span>, y: <span class="number">86</span>, width: <span class="number">100</span>, height: <span class="number">100</span>))</span><br><span class="line"></span><br><span class="line">label.text = <span class="string">"\u&#123;1F32D&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.view.addSubview(label)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="OC"><a href="#OC" class="headerlink" title="OC"></a>OC</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/22/%E5%BC%80%E5%8F%91Tips/" data-id="ck9nju4zf000dsfy9b10390s7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">iOS开发中的小技巧</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/23/CRC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CRC
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/26/Nmap%E7%9A%84%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Nmap的详细说明</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">iOS开发中的小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">工具的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" rel="tag">知识点记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">第三方的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">iOS开发中的小技巧</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 15px;">工具的使用</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">知识点记录</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">第三方的使用</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">软件、工具的使用</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/25/%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF%E5%AE%A1%E6%A0%B8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">医疗项目上架审核注意事项</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/">iOS13蓝牙隐私变化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/">Swift5中CFStringTransform的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/23/CRC/">CRC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 海泉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

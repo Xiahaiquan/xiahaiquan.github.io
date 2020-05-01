@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>iOS13蓝牙隐私变化 | 海泉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 框架简要说明iOS中Core Bluetooth 框架是一个抽象层，使开发人员可以访问BLE硬件。  苹果在WWDC 2019引入了许多改进措施。除了快速传输数据和节能连接之外，用户隐私也得到了很多重视。在iOS 12之前，应用程序可以在用户不知情的情况下访问蓝牙，例如连接到智能手表或无线耳机。但这样的做法有一些缺陷，会在用户的隐私中制造了一个漏洞。 开发人员可以利用此并跟踪诸如位置数据之类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS13蓝牙隐私变化">
+<meta property="og:url" content="http://yoursite.com/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="海泉">
+<meta property="og:description" content="1. 框架简要说明iOS中Core Bluetooth 框架是一个抽象层，使开发人员可以访问BLE硬件。  苹果在WWDC 2019引入了许多改进措施。除了快速传输数据和节能连接之外，用户隐私也得到了很多重视。在iOS 12之前，应用程序可以在用户不知情的情况下访问蓝牙，例如连接到智能手表或无线耳机。但这样的做法有一些缺陷，会在用户的隐私中制造了一个漏洞。 开发人员可以利用此并跟踪诸如位置数据之类">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOS13CoreBluetoothFeatures/1-1.jpeg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOS13CoreBluetoothFeatures/1-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOS13CoreBluetoothFeatures/1-3.jpeg">
+<meta property="article:published_time" content="2020-01-20T02:55:53.000Z">
+<meta property="article:modified_time" content="2020-04-26T05:40:36.465Z">
+<meta property="article:author" content="海泉">
+<meta property="article:tag" content="软件、工具的使用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOS13CoreBluetoothFeatures/1-1.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="海泉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">海泉</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay Hungry, Stay Foolish</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS13蓝牙隐私变化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/" class="article-date">
+  <time datetime="2020-01-20T02:55:53.000Z" itemprop="datePublished">2020-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS13蓝牙隐私变化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-框架简要说明"><a href="#1-框架简要说明" class="headerlink" title="1. 框架简要说明"></a>1. 框架简要说明</h4><p>iOS中<code>Core Bluetooth</code> 框架是一个抽象层，使开发人员可以访问BLE硬件。</p>
+<p> 苹果在WWDC 2019引入了许多改进措施。除了快速传输数据和节能连接之外，用户隐私也得到了很多重视。在iOS 12之前，应用程序可以在用户不知情的情况下访问蓝牙，例如连接到智能手表或无线耳机。但这样的做法有一些缺陷，会在用户的隐私中制造了一个漏洞。 开发人员可以利用此并跟踪诸如位置数据之类的信息。</p>
+<a id="more"></a>
+
+<p>但从iOS 13开始，如果在应用程序使用任何<code>Core Bluetooth</code> API，它都需要用户的许可。 当然用户可以从设置中开启、关闭蓝牙权限。</p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOS13CoreBluetoothFeatures/1-1.jpeg" alt="步骤"></p>
+<h4 id="2-隐私权限和使用"><a href="#2-隐私权限和使用" class="headerlink" title="2. 隐私权限和使用"></a>2. 隐私权限和使用</h4><p>从iOS 13开始，开发人员必须通过在其info.plist文件中包含<code>NSBluetoothAlwaysUsageDescription</code>来指定蓝牙的隐私使用说明。 在没有使用说明的情况下访问<code>Core Bluetooth</code>将导致运行时崩溃。<br>为了向后支持较旧的iOS版本，还需要定义<code>NSBluetoothPeripheralUsageDescription</code>。</p>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOS13CoreBluetoothFeatures/1-2.png" alt="屏幕快照 2020-01-01 下午5.52.50"></p>
+<h4 id="3-API变更"><a href="#3-API变更" class="headerlink" title="3. API变更"></a>3. API变更</h4><p><code>CBManagerAuthorisation</code>是iOS 13的一个新添加的属性。它用于确定蓝牙权限的授权状态。<br>授权属性可以具有以下任意状态：</p>
+<ul>
+<li><code>allowedAlways</code></li>
+<li><code>restricted</code></li>
+<li><code>notDetermined</code></li>
+<li><code>denied</code></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Xiahaiquan/BlogGraphBed/master/iOS13CoreBluetoothFeatures/1-3.jpeg" alt="IMG_4152"></p>
+<h4 id="4-使用步骤"><a href="#4-使用步骤" class="headerlink" title="4. 使用步骤"></a>4. 使用步骤</h4><p><code>import  CoreBluetooth</code>以便在代码库中使用 Core Bluetooth Framework。<br>为了使用Core Bluetooth功能，我们需要实现<code>CBPeripheralDelegate和CBCentralManagerDelegate</code>协议。</p>
+<h5 id="4-1-初始化蓝牙管理器"><a href="#4-1-初始化蓝牙管理器" class="headerlink" title="4.1 初始化蓝牙管理器"></a>4.1 初始化蓝牙管理器</h5><p><code>CBCentralManager</code>负责扫描并连接到设备。 连接完成后，往后的操作都是围绕<code>CBPeripheral</code>进行的。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> centralManager: <span class="type">CBCentralManager?</span></span><br><span class="line"><span class="keyword">var</span> peripheral: <span class="type">CBPeripheral?</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    centralManager = <span class="type">CBCentralManager</span>(delegate: <span class="keyword">self</span>, queue: <span class="literal">nil</span>) </span><br><span class="line">&#125;`</span><br></pre></td></tr></table></figure>
+
+
+
+<p>就在初始化<code>CentralManager</code>时，立即触发<code>centralManagerDidUpdateState（_central：CBCentralManager</code>）委托方法以检查蓝牙连接的状态。</p>
+<p>如果蓝牙关闭，<code>CBCentralManager</code>不能被实例化，系统会自动提示抛出一个对话框，要求您启用它。</p>
+<p>我们可以使用<code>central.state.authorization</code>属性检查用户授权状态。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">centralManagerDidUpdateState</span><span class="params">(<span class="number">_</span> central: CBCentralManager)</span></span> &#123;</span><br><span class="line">           <span class="keyword">switch</span> central.state &#123;</span><br><span class="line">           <span class="keyword">case</span> .unauthorized:</span><br><span class="line">               <span class="keyword">switch</span> central.authorization &#123;</span><br><span class="line">               <span class="keyword">case</span> .allowedAlways:</span><br><span class="line">               <span class="keyword">case</span> .denied:</span><br><span class="line">               <span class="keyword">case</span> .restricted:</span><br><span class="line">               <span class="keyword">case</span> .notDetermined:</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">case</span> .unknown:</span><br><span class="line">           <span class="keyword">case</span> .unsupported:</span><br><span class="line">           <span class="keyword">case</span> .poweredOn:</span><br><span class="line">       <span class="keyword">self</span>.centralManager?.scanForPeripherals(withServices: <span class="literal">nil</span>, options: [<span class="type">CBCentralManagerScanOptionAllowDuplicatesKey</span>:<span class="literal">true</span>])</span><br><span class="line">           <span class="keyword">case</span> .poweredOff:</span><br><span class="line">           <span class="keyword">case</span> .resetting:</span><br><span class="line">           @unknown <span class="keyword">default</span>:</span><br><span class="line">           &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>仅当状态更改为<code>poweredOn</code>时才可以扫描设备</p>
+<blockquote>
+<p>注意：Core Bluetooth仅扫描BLE设备。</p>
+</blockquote>
+<h5 id="4-2-连接到扫描的设备"><a href="#4-2-连接到扫描的设备" class="headerlink" title="4.2 连接到扫描的设备"></a>4.2 连接到扫描的设备</h5><p>一旦发现BLE设备，它将以下方法的委托方法回调：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">centralManager</span><span class="params">(<span class="number">_</span> central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : <span class="keyword">Any</span>], rssi RSSI: NSNumber)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">self</span>.peripheral = peripheral</span><br><span class="line">        <span class="keyword">self</span>.peripheral?.delegate = <span class="keyword">self</span></span><br><span class="line">        </span><br><span class="line">        centralManager?.connect(peripheral, options: <span class="literal">nil</span>)</span><br><span class="line">        centralManager?.stopScan()</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，我们可以从<code>peripheral.name</code>属性访问蓝牙设备名称。 </p>
+<h5 id="4-3-发送数据到设备"><a href="#4-3-发送数据到设备" class="headerlink" title="4.3 发送数据到设备"></a>4.3 发送数据到设备</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">peripheral</span><span class="params">(<span class="number">_</span> peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(error ?? <span class="string">"data send successfully"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-4-设备中数据有更新"><a href="#4-4-设备中数据有更新" class="headerlink" title="4.4 设备中数据有更新"></a>4.4 设备中数据有更新</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">peripheral</span><span class="params">(<span class="number">_</span> peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 在这个代理方法中，可以上报给上层作进一步的数据处理。</p>
+<h4 id="5-结论"><a href="#5-结论" class="headerlink" title="5. 结论"></a>5. 结论</h4><p>苹果通过新的iOS 13权限提高了蓝牙安全性，以提供信息权限透明性并改善用户体验。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/" data-id="ck9nju4zb0008sfy92mmr19qk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/25/%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF%E5%AE%A1%E6%A0%B8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          医疗项目上架审核注意事项
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Swift5中CFStringTransform的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">iOS开发中的小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">工具的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" rel="tag">知识点记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">第三方的使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag">软件、工具的使用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">iOS开发中的小技巧</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 15px;">工具的使用</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">知识点记录</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">第三方的使用</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E3%80%81%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">软件、工具的使用</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/25/%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF%E5%AE%A1%E6%A0%B8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">医疗项目上架审核注意事项</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/20/iOS13%E8%93%9D%E7%89%99%E9%9A%90%E7%A7%81%E5%8F%98%E5%8C%96/">iOS13蓝牙隐私变化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/06/Swift5%E4%B8%ADCFStringTransform%E7%9A%84%E4%BD%BF%E7%94%A8/">Swift5中CFStringTransform的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/23/CRC/">CRC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 海泉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
