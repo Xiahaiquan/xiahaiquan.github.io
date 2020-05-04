@@ -23,12 +23,12 @@
     <meta name="description" content="Swift对象数据转字典通讯录中UITableView的数据源. 12let arr &#x3D; [ContactsModel]let res &#x3D; Dictionary(grouping: arr, by: &amp;#123; $0.name.prefix(1).uppercased()&amp;#125;) &#x2F;&#x2F; [String:[ContactsModel]]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发Tips">
-<meta property="og:url" content="http://yoursite.com/2019/10/22/%E5%BC%80%E5%8F%91Tips/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/10/22/%E5%BC%80%E5%8F%91%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/index.html">
 <meta property="og:site_name" content="海泉">
 <meta property="og:description" content="Swift对象数据转字典通讯录中UITableView的数据源. 12let arr &#x3D; [ContactsModel]let res &#x3D; Dictionary(grouping: arr, by: &amp;#123; $0.name.prefix(1).uppercased()&amp;#125;) &#x2F;&#x2F; [String:[ContactsModel]]">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-10-22T11:33:41.000Z">
-<meta property="article:modified_time" content="2020-03-13T06:16:36.000Z">
+<meta property="article:modified_time" content="2020-05-04T08:34:59.320Z">
 <meta property="article:author" content="海泉">
 <meta property="article:tag" content="iOS开发中的小技巧">
 <meta name="twitter:card" content="summary">
@@ -285,7 +285,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">428</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">460</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -439,9 +439,9 @@ height:50vh;
 <p>swift中的循环遍历删除不会崩溃的。(<a href="https://github.com/apple/swift/blob/da61cc8cdf7aa2bfb3ab03200c52c4d371dc6751/stdlib/public/core/Sequence.swift" target="_blank" rel="noopener">官方源码</a>)原因是在它的迭代器进行循环的，上面的代码可转化成如下代码</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> items = [<span class="string">"Swift"</span>, <span class="string">"OC"</span>, <span class="string">"Javascript"</span>]</span><br><span class="line"><span class="keyword">var</span> itemsIterator = items.makeIterator()</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">let</span> item = itemsIterator.next() &#123;</span><br><span class="line">    items.removeLast()<span class="comment">//此处删除items的时候，itemsIterator并不会受到影响。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用Label显示Unicode</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> label = <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>.<span class="keyword">init</span>(x: <span class="number">10</span>, y: <span class="number">86</span>, width: <span class="number">100</span>, height: <span class="number">100</span>))</span><br><span class="line"></span><br><span class="line">label.text = <span class="string">"\u&#123;1F32D&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.view.addSubview(label)</span><br></pre></td></tr></table></figure>
+<h5 id="用Label显示Unicode"><a href="#用Label显示Unicode" class="headerlink" title="用Label显示Unicode"></a>用Label显示Unicode</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用Label显示Unicode</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> label = <span class="type">UILabel</span>.<span class="keyword">init</span>(frame: <span class="type">CGRect</span>.<span class="keyword">init</span>(x: <span class="number">10</span>, y: <span class="number">86</span>, width: <span class="number">100</span>, height: <span class="number">100</span>))</span><br><span class="line"></span><br><span class="line">label.text = <span class="string">"\u&#123;1F32D&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.view.addSubview(label)</span><br></pre></td></tr></table></figure>
 
-
+<h5 id="在String通过下标获取字符"><a href="#在String通过下标获取字符" class="headerlink" title="在String通过下标获取字符"></a>在String通过下标获取字符</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="keyword">subscript</span> (index: <span class="type">Int</span>) -&gt; <span class="type">Character</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>[<span class="keyword">self</span>.index(<span class="keyword">self</span>.startIndex, offsetBy: index)]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -582,7 +582,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift"><span class="toc-number">1.</span> <span class="toc-text">Swift</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象数据转字典"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">对象数据转字典</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#汉字转拼音"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">汉字转拼音</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hex-to-byte"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">Hex to byte</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取UICollectionView显示的中间的Cell"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">获取UICollectionView显示的中间的Cell</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UITableView无刷新动画的刷新"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">UITableView无刷新动画的刷新</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在合适的的时机移除通知和定时器"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">在合适的的时机移除通知和定时器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#swift的forin循环遍历"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">swift的forin循环遍历</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OC"><span class="toc-number">2.</span> <span class="toc-text">OC</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift"><span class="toc-number">1.</span> <span class="toc-text">Swift</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象数据转字典"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">对象数据转字典</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#汉字转拼音"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">汉字转拼音</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hex-to-byte"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">Hex to byte</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取UICollectionView显示的中间的Cell"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">获取UICollectionView显示的中间的Cell</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UITableView无刷新动画的刷新"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">UITableView无刷新动画的刷新</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在合适的的时机移除通知和定时器"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">在合适的的时机移除通知和定时器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#swift的forin循环遍历"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">swift的forin循环遍历</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用Label显示Unicode"><span class="toc-number">1.0.0.0.8.</span> <span class="toc-text">用Label显示Unicode</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在String通过下标获取字符"><span class="toc-number">1.0.0.0.9.</span> <span class="toc-text">在String通过下标获取字符</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OC"><span class="toc-number">2.</span> <span class="toc-text">OC</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -595,6 +595,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -746,7 +748,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/22</span><a class="archive-post-title" href= "/2019/10/22/%E5%BC%80%E5%8F%91Tips/" >开发Tips</a>
+            <span class="archive-post-date">10/22</span><a class="archive-post-title" href= "/2019/10/22/%E5%BC%80%E5%8F%91%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" >开发Tips</a>
         </li>
     
     
